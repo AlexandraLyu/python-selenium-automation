@@ -1,0 +1,55 @@
+1. Practice with locators. 
+Create locators + search strategy for these page elements of Amazon Sign in page:
+Amazon logo //*[@id="a-page"]/div[1]/div[1]/div/a/i
+Email field //*[@id="ap_email"]
+Continue button  //*[@id="continue"]
+Conditions of use link //*[@id="legalTextRow"]/a[1]
+Privacy Notice link //*[@id="legalTextRow"]/a[2]
+Need help link //*[@id="authportal-main-section"]/div[2]/div[2]/div[1]/form/div/div/div/div[3]/div/a/span
+Forgot your password link //*[@id="auth-fpp-link-bottom"]
+Other issues with Sign-In link //*[@id="ap-other-signin-issues-link"]
+Create your Amazon account button  //*[@id="createAccountSubmit"]
+
+
+2. Create a test case for the SignIn page using python & selenium script. 
+(Make sure to use Incognito browser mode when searching for locators)
+
+Test Case: Users can navigate to SignIn page
+1. Open https://www.target.com/ 
+2. Click SignIn button
+3. Click SignIn from side navigation
+4. Verify SignIn page opened: 
+“Sign into your Target account” text is shown,
+SignIn button is shown (you can just use driver.find_element() to check for element’s presence, no need to assert here)
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# Initialize Chrome WebDriver in Incognito mode
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--incognito")
+driver = webdriver.Chrome(options=chrome_options)
+
+# Open the Target website
+driver.get("https://www.target.com/")
+
+# Click SignIn button
+signin_button = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='headerPrimary']/a[4]/span")))
+signin_button.click()
+
+# Click SignIn from side navigation
+signin_nav_link = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='listaccountNav-signIn']/a/span")))
+signin_nav_link.click()
+
+# Verify SignIn page opened
+signin_text = WebDriverWait(driver, 7).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div/div/div/div[1]/div/h1/span")))
+assert signin_text.text == "Sign into your Target account", "SignIn page not opened successfully"
+
+# Check if SignIn button is shown
+signin_button_present = WebDriverWait(driver, 7).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='login']")))
+assert signin_button_present, "SignIn button is not shown"
+
+# Close the browser window
+driver.quit()
