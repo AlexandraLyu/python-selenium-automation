@@ -10,7 +10,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 SEARCH_INPUT = (By.ID, 'search')
 ADD_TO_CART_BUTTON = (By.ID, 'addToCartButtonOrTextIdFor14778867')
 
-@given('Open Target main page')
+#@given('Open Target main page')
 def open_target(context):
     context.driver.get('https://www.target.com/')
 
