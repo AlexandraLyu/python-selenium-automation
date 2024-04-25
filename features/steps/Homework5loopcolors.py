@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#@given('I navigate to "{url}"')
+@given('I navigate to "{url}"')
 def navigate_to_url(context, url):
     context.driver.get(url)
 
