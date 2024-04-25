@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#@given('I am on the target.com website')
+@given('I am on the website')
 def step_impl(context):
     context.driver = webdriver.Chrome()
     context.driver.get("https://www.target.com")
@@ -35,6 +35,5 @@ def step_impl(context):
     )
     assert sign_in_form.is_displayed()
 
-    # Close the browser
-    context.driver.quit()
+
 

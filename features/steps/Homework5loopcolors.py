@@ -2,31 +2,14 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-
-@given('I navigate to "{url}"')
-def navigate_to_url(context, url):
-    context.driver.get(url)
-
-
 from behave import when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-import time
-
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
+#@given('I navigate to "{url}"')
+def navigate_to_url(context, url):
+    context.driver.get(url)
 
 @when('Loop through colors and verify selection')
 def loop_through_colors(context):
@@ -87,19 +70,6 @@ def verify_color_display(context, locator):
 
     except Exception as e:
         print(f"Error occurred while verifying the display of {locator[1]}: {e}")
-
-
-
-
-from behave import then
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-from behave import then
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 @then('Verify when clicking on the color selection the correct color image is displayed')
