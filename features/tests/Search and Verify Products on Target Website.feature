@@ -16,3 +16,14 @@ Feature: Search and Verify Products on Target Website
     Given Open Target main page
     When Search for mouse
     Then Verify that every product has a name and an image
+
+    Scenario Outline: User can search for a product
+  Given Open Target main page
+  When search for "<item>"
+  Then verify search results are shown for "<expected_item>"
+  Examples:
+    | item      | expected_item |
+    | mug       | mug           |
+    | tea       | tea           |
+    | white mug | white mug     |
+    | white mug | white mug     |
