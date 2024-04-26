@@ -1,6 +1,6 @@
 from behave import given, when, then
 from selenium import webdriver
-from pages.MainPage import MainPage
+from pages.main_page import MainPage
 from pages.ProductPage import ProductPage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

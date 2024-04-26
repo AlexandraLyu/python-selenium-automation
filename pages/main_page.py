@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class MainPageLocators:
     SEARCH_INPUT = (By.ID, 'search')
     SEARCH_BTN = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
@@ -10,6 +11,7 @@ class MainPageLocators:
     ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[id*='addToCartButton']")
     SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")
     SIDE_NAV_ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
+
 
 class MainPage:
 

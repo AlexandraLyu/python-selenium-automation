@@ -1,10 +1,14 @@
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+
 
 class SignInPageLocators:
     SIGN_IN_RIGHT_NAV = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
-    SIGN_IN_FORM = (By.ID, "login")
+    SIGN_IN_FORM = (
+    By.XPATH, "//h1[contains(@class, 'styles__AuthHeading')]/span[text()='Sign into your Target account']")
+
 
 class SignInPage:
     def __init__(self, driver):
@@ -20,3 +24,10 @@ class SignInPage:
         WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(SignInPageLocators.SIGN_IN_FORM)
         )
+
+    def open(self):
+        try:
+            self.click_sign_in_right_nav()
+            self.verify_sign_in_form_opened()
+        except TimeoutException:
+            print("Sign-in link is not clickable within the timeout period.")
