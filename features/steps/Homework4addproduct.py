@@ -10,7 +10,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 SEARCH_INPUT = (By.ID, 'search')
 ADD_TO_CART_BUTTON = (By.ID, 'addToCartButtonOrTextIdFor14778867')
 
-#@given('Open Target main page')
+@given('Open Target main page')
 def open_target(context):
     context.driver.get('https://www.target.com/')
 
@@ -21,7 +21,7 @@ def search_product(context):
     sleep(6)
 
 
-@then('Click on Tazo green tea label')
+#@then('Click on Tazo green tea label')
 def click_tazo_green_tea_label(context):
     print("Waiting for Tazo green tea label...")
     try:
@@ -48,7 +48,7 @@ def click_tazo_green_tea_label(context):
         raise
 
 
-@then('Click on the name Tazo Green Tea Matcha Latte')
+#@then('Click on the name Tazo Green Tea Matcha Latte')
 def click_tazo_green_tea_matcha_latte(context):
     try:
         print("Clicking on Tazo Green Tea Matcha Latte label...")
@@ -80,7 +80,7 @@ def click_tazo_green_tea_matcha_latte(context):
         raise
 
 
-@then('Click on Add to Cart button')
+#@then('Click on Add to Cart button')
 def click_add_to_cart_button(context):
     try:
         print("Clicking on Add to Cart button...")
@@ -113,7 +113,7 @@ def click_add_to_cart_button(context):
         raise
 
 
-@then('Click X button')
+#@then('Click X button')
 def click_x_button(context):
     # Locate the button by aria-label
     close_button = WebDriverWait(context.driver, 10).until(
@@ -122,7 +122,7 @@ def click_x_button(context):
     close_button.click()
 
 
-@then('Click on the cart button')
+#@then('Click on the cart button')
 def click_cart_button(context):
     # Define the locator
     locator = (By.CSS_SELECTOR, 'a[data-test="@web/CartLink"]')
@@ -140,7 +140,7 @@ def click_cart_button(context):
         raise
 
 
-@then('Verify subtotal is $5.19')
+#@then('Verify subtotal is $5.19')
 def verify_subtotal(context):
     locator = (By.CSS_SELECTOR, 'span.styles__CartSummarySpan-sc-odscpb-3.jaXVgU')
 

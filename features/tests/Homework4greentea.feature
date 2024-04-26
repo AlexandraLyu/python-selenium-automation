@@ -6,7 +6,7 @@ Feature: Search tests
 #    When Search for "coffee"
 #    Then Verify search results are shown
 
- Scenario: User can search for green tea
-    Given I open Target main page
-    When  I search for green tea
-    Then  I verify search results are shown for green tea
+ #Scenario: User can search for green tea
+    #Given I open Target main page
+    #When  I search for green tea
+    #Then  I verify search results are shown for green tea

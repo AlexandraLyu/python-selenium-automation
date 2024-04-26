@@ -11,7 +11,7 @@ ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[id*='addToCartButton']")
 SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")
 SIDE_NAV_ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
 
-@given('Open Target main page')
+#@given('Open Target main page')
 def open_target(context):
     context.driver.get('https://www.target.com/')
     context.app.main_page.open_main()
