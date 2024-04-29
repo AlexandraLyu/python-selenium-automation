@@ -1,16 +1,19 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from pages.base_page import Page
 
 
-class TermsAndConditionsPage:
-    def __init__(self, driver):
-        self.driver = driver
+class TermsAndConditionsPage(Page):
+    TC_LINK = (By.XPATH, "//a[contains(text(), 'Target terms and conditions')]")
 
-    def verify_terms_and_conditions_opened(self):
-        # Switch to the newly opened window
-        new_window = WebDriverWait(self.driver, 10).until(EC.new_window_is_opened)
-        self.driver.switch_to.window(new_window)
+    def open_sign_in_page(self):
+        sign_in_url = 'https://www.target.com/login?client_id=ecom-web-1.0.0&ui_namespace=ui-default&back_button_action=browser&keep_me_signed_in=true&kmsi_default=false&actions=create_session_signin'
+        self.driver.get(sign_in_url)
 
-        # Verify that the terms and conditions page is opened
-        assert "Terms and Conditions" in self.driver.title
+    def open_terms_and_conditions_page(self):
+        self.open('https://www.target.com/c/terms-conditions/-/N-4sr7l')
+
+    def click_tc_link(self):
+        self.click(*self.TC_LINK)
+
+    def verify_tc_opened(self):
+        self.verify_partial_url('terms-conditions/')

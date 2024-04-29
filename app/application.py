@@ -4,7 +4,8 @@ from pages.header import Header
 from pages.main_page import MainPage
 from pages.search_results_page import SearchResultsPage
 from pages.target_app_page import TargetAppPage
-
+from pages.terms_and_conditions_page import TermsAndConditionsPage
+from pages.sign_in_page import SignInPage
 
 class Application:
     def __init__(self, driver):
@@ -14,3 +15,5 @@ class Application:
         self.main_page = MainPage(driver)
         self.search_result_page = SearchResultsPage(driver)
         self.target_app_page = TargetAppPage(driver)
+        self.terms_and_conditions_page = TermsAndConditionsPage(driver)
+        self.sign_in_page = SignInPage(driver)
