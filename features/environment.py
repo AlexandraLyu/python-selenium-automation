@@ -17,7 +17,7 @@ def browser_init(context, scenario_name):
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
 
-    # driver_path = GeckoDriverManager().install()
+     #driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
     # context.driver = webdriver.Firefox(service=service)
 
@@ -38,20 +38,20 @@ def browser_init(context, scenario_name):
     # )
 
     ### BROWSERSTACK ###
-    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user = ''
-    # bs_key = ''
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     'osVersion': '13.0',
-    #     'deviceName': 'Samsung Galaxy S23',
-    #     'browserName': 'chrome',
-    #     'sessionName': scenario_name
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+     #Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+     #bs_user = 'alexandralyubche_cX943G'
+     #bs_key = 'YhDcZ7qrS1WzpxBpHp4B'
+     #url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+     #options = Options()
+     #bstack_options = {
+      #   'osVersion': '13.0',
+       #  'deviceName': 'Samsung Galaxy S23',
+        # 'browserName': 'chrome',
+         #'sessionName': scenario_name
+     #}
+     #options.set_capability('bstack:options', bstack_options)
+     #context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
